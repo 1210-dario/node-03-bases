@@ -1,2 +1,5 @@
 # node-03-bases
-* Abrir Terminal
+
+* npm y package.json
+* nodemon
+
