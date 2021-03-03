@@ -14,6 +14,14 @@ const argv = require('yargs')
             describe : 'Es el limite de la tabla de multiplicar' 
         })
 
+        .option('v', {
+            alias: 'visualizar',
+            type: 'boolean',
+            demandOption: false,
+            default: false,
+            describe: 'Muestra la tabla en la consola'
+        })
+
         .check((argv,options) =>{
             if(isNaN(argv.b)){
                 throw new Error("La base tiene que ser un número.")
@@ -21,13 +29,17 @@ const argv = require('yargs')
             return true
         })
 
+        .help()
+
+        .version()
+
         .argv;
 
 
 
 const {multiplicar} = require("./multiplicador");
 
-multiplicar(argv.b, argv.l);
+multiplicar(argv.b, argv.l,argv.v);
 
 
 
